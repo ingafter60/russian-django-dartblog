@@ -11,15 +11,21 @@
     6. Run server
     7. Create local repository
 
-        new file:   blog/admin.py
-        new file:   blog/apps.py
-        new file:   blog/models.py
-        new file:   blog/tests.py
-        new file:   blog/views.py
-        new file:   config/__init__.py
-        new file:   config/asgi.py
-        new file:   config/settings.py
-        new file:   config/urls.py
-        new file:   config/wsgi.py
-        new file:   manage.py
-    
+    new file:   blog/admin.py
+    new file:   blog/apps.py
+    new file:   blog/models.py
+    new file:   blog/tests.py
+    new file:   blog/views.py
+    new file:   config/__init__.py
+    new file:   config/asgi.py
+    new file:   config/settings.py
+    new file:   config/urls.py
+    new file:   config/wsgi.py
+    new file:   manage.py
+        
+### 2. Create Home page views
+
+    modified:   README.md
+    new file:   blog/urls.py
+    modified:   blog/views.py
+    modified:   config/urls.py
