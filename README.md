@@ -47,24 +47,39 @@
         
 ### 4. Create models - Category, Tag, and Post
 
-        1. Git status
-            modified:   blog/admin.py
-            new file:   blog/migrations/0001_initial.py
-            modified:   blog/models.py
+    1. Git status
+        modified:   blog/admin.py
+        new file:   blog/migrations/0001_initial.py
+        modified:   blog/models.py
        
        
 ### 5. Install Django Debug Toolbar (Part 1/2)
 
-        1. Register * models to admin.py
-        2. Install django-debug-toolbar
-           (link: pypi.oi)
-           (link: https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
-        3. Follow the instructions
-        4. Test it out - runserver
-        5. Git status
-            modified:   README.md
-            modified:   blog/admin.py
-            modified:   config/settings.py
-            modified:   config/urls.py
+    1. Register * models to admin.py
+    2. Install django-debug-toolbar
+       (link: pypi.org)
+       (link: https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
+    3. Follow the instructions
+    4. Test it out - runserver
+    5. Git status
+        modified:   README.md
+        modified:   blog/admin.py
+        modified:   config/settings.py
+        modified:   config/urls.py
 
-       
+### 5. Install Django Ckeditor (Part 2/2)
+
+    1. Go to pypi.org - pip install django-ckeditor
+    2. Register ckeditor to Install App
+    3. Run - python manage.py collectstatic
+    4. Add it to settings - CKEDITOR_UPLOAD_PATH = "uploads/"
+    5. Add it to config ulrs - url(r'^ckeditor/', include('ckeditor_uploader.urls')),     
+    6. Add CKEDITOR_CONFIGS = [ ... ] to settings.py 
+    7. Git status
+        modified:   README.md
+        modified:   blog/admin.py
+        modified:   config/settings.py
+        modified:   config/urls.py
+        new file:   media/photos/2020/06/01/post-image2.jpg
+        new file:   media/uploads/2020/06/01/post-image1.jpg
+        new file:   media/uploads/2020/06/01/post-image4.jpg
