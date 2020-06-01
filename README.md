@@ -52,3 +52,19 @@
             new file:   blog/migrations/0001_initial.py
             modified:   blog/models.py
        
+       
+### 5. Install Django Debug Toolbar (Part 1/2)
+
+        1. Register * models to admin.py
+        2. Install django-debug-toolbar
+           (link: pypi.oi)
+           (link: https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
+        3. Follow the instructions
+        4. Test it out - runserver
+        5. Git status
+            modified:   README.md
+            modified:   blog/admin.py
+            modified:   config/settings.py
+            modified:   config/urls.py
+
+       
