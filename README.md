@@ -83,3 +83,19 @@
         new file:   media/photos/2020/06/01/post-image2.jpg
         new file:   media/uploads/2020/06/01/post-image1.jpg
         new file:   media/uploads/2020/06/01/post-image4.jpg
+
+### 6. Admin settings
+    
+    1. Added these lines of code to blob/admin.py 
+        list_display = ('id', 'title', 'category', 'created_at', 'get_photo')
+        list_display_links = ('id', 'title')
+        search_fields = ('title',)
+        list_filter = ('category',)
+        readonly_fields = ('views', 'created_at', 'get_photo')
+        fields = ('title', 'slug', 'category', 'tags', 'content', 'photo', 'get_photo', 'views', 'created_at')
+    2. Git status
+        modified:   README.md
+        modified:   blog/__pycache__/admin.cpython-37.pyc
+        modified:   blog/__pycache__/models.cpython-37.pyc
+        modified:   blog/admin.py
+        modified:   blog/models.py

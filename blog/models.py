@@ -24,6 +24,8 @@ class Category(models.Model):
         return self.title
 
     class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
         ordering = ['title']
 
 
@@ -45,7 +47,7 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Date of creation')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    views = models.IntegerField(default=0, verbose_name='Viewed many time ...')
+    views = models.IntegerField(default=0, verbose_name='Times of viewed')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='posts')
     tags = models.ManyToManyField(Tag, blank=True, related_name='posts')
 
