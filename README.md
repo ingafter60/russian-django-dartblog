@@ -44,4 +44,11 @@
         modified:   blog/views.py
         modified:   config/settings.py
         new file:   templates/base.html
-   
+        
+### 4. Create models - Category, Tag, and Post
+
+        1. Git status
+            modified:   blog/admin.py
+            new file:   blog/migrations/0001_initial.py
+            modified:   blog/models.py
+       
