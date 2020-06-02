@@ -99,3 +99,104 @@
         modified:   blog/__pycache__/models.cpython-37.pyc
         modified:   blog/admin.py
         modified:   blog/models.py
+        
+ ### 7. Menu Template Tag
+ 
+    1. Create include dir for footer and header 
+       - templates/inc/_header.html
+       - templates/inc/_footer.html
+    2. Move header and footer to inc from base.html
+    3. Use include {% include 'inc/_header.html' %} and for footer as well
+    4. Add link to home - <li><a href="{% url 'home' %}">Home</a></li>
+    5. In blog/views.py create this - 
+        def get_category(request, slug):
+            return render(request, 'blog/category.html')    
+    6. In blog/urls.py create this -
+        path('category/<str:slug>', get_category, name='category'),
+    7. In blog/models.py create this -
+        from django.urls import reverse
+            def get_absolute_url(self):
+                return reverse('category', kwargs={'slug': self.slug}) 
+    8. Create templatetags -
+        blog/templatetags
+        blog/templatetags/__init__.py
+        blog/templatetags/menu.py
+    9. In blog/templates create -
+        /menu_tpl.html
+    10. In templatetags/menu.py add this -
+        # blog/templatetags/menu.py
+        from django import template
+        from blog.models import Category
+        
+        register = template.Library()
+        
+        @register.inclusion_tag('blog/menu_tpl.html')
+        def show_menu(menu_class='menu'):
+            categories = Category.objects.all()
+            return {'categories': categories, 'menu_class': menu_class}
+    11. In templates/inc/_header.html do this -
+            {% load menu %}
+            <header class="header">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-2">
+                        <div class="logo">
+                           <h2><a href="#">Classic</a></h2>
+                        </div>
+                     </div>
+                     <div class="col-md-10">
+                        {% show_menu %}
+                     </div>
+                  </div>
+               </div>
+            </header>       
+            
+    12. In templates/inc/_footer.html to this -
+        {% load menu %}
+        <footer class="footer">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-12">
+                    <div class="footer-bg">
+                       <div class="row">
+                          <div class="col-md-9">
+                             {% show_menu 'footer-menu' %}
+                             <!-- <div class="footer-menu">
+                                <ul>
+                                   <li class="active"><a href="#">Home</a></li>
+                                   <li><a href="#">lifestyle</a></li>
+                                   <li><a href="#">Food</a></li>
+                                   <li><a href="#">Nature</a></li>
+                                   <li><a href="#">photography</a></li>
+                                </ul>
+                             </div> -->
+                          </div>
+                          <div class="col-md-3">
+                             <div class="footer-icon">
+                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></p>
+                             </div>
+                          </div>
+                       </div> .
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </footer>      
+    13. Git status
+        modified:   README.md
+        modified:   blog/models.py
+        new file:   blog/templates/blog/category.html
+        new file:   blog/templates/blog/menu_tpl.html
+        new file:   blog/templatetags/__init__.py
+        new file:   blog/templatetags/menu.py
+        modified:   blog/urls.py
+        modified:   blog/views.py
+        modified:   config/settings.py
+        new file:   django_cache/be7c5c70635fbc5edcce3cd5bc69af35.djcache
+        new file:   django_cache/c7992ab6d96eef92fdffdac20b764b53.djcache
+        modified:   templates/base.html
+        new file:   templates/inc/_footer.html
+        new file:   templates/inc/_header.html
+                 
+        
+              
