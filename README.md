@@ -198,5 +198,30 @@
         new file:   templates/inc/_footer.html
         new file:   templates/inc/_header.html
                  
+### 8. Highlighting an active menu item
+
+    1. Open config/static/js/active.js and add this -
+        $(document).ready(function () {
+    
+            $('.menu a').each(function(){
+                let location = window.location.protocol + '//' + window.location.host + window.location.pathname;
+                let link = this.href;
+                if(location == link){
+                    $(this).parent().addClass('active');
+                }
+            });
+            
+            ...
+        }  
+    2. Git status
+        modified:   README.md
+        modified:   blog/__pycache__/urls.cpython-37.pyc
+        modified:   blog/urls.py
+        modified:   django_cache/be7c5c70635fbc5edcce3cd5bc69af35.djcache
+        modified:   django_cache/c7992ab6d96eef92fdffdac20b764b53.djcache
+        modified:   templates/inc/_header.html
+      
+
+
         
               
